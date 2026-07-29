@@ -1,0 +1,76 @@
+{
+  "dictionary": {
+    "random": {
+      "coverage": 1.0,
+      "atom_acc": 0.976054938104274,
+      "exact_3_frag": 1.0,
+      "reassembly": 1.0,
+      "n_test_molecules": 168
+    },
+    "unseen_warhead": {
+      "coverage": 1.0,
+      "atom_acc": 0.9729949421965318,
+      "exact_3_frag": 1.0,
+      "reassembly": 1.0,
+      "n_test_molecules": 171
+    },
+    "unseen_e3": {
+      "coverage": 1.0,
+      "atom_acc": 0.9559294871794872,
+      "exact_3_frag": 1.0,
+      "reassembly": 1.0,
+      "n_test_molecules": 184
+    },
+    "fingerprint_ood": {
+      "coverage": 1.0,
+      "atom_acc": 0.9612360070311777,
+      "exact_3_frag": 1.0,
+      "reassembly": 1.0,
+      "n_test_molecules": 167
+    },
+    "newer_chemotype": {
+      "coverage": 1.0,
+      "atom_acc": 0.9864581346557314,
+      "exact_3_frag": 1.0,
+      "reassembly": 1.0,
+      "n_test_molecules": 167
+    }
+  },
+  "xgboost": {
+    "random": {
+      "atom_acc": 0.7653383934218849,
+      "exact_3_frag": 0.8333333333333334,
+      "reassembly": 0.8333333333333334,
+      "n_test_molecules": 168,
+      "bond_roc_auc": 0.7112700425297929
+    },
+    "unseen_warhead": {
+      "atom_acc": 0.6488439306358381,
+      "exact_3_frag": 0.8947368421052632,
+      "reassembly": 0.8947368421052632,
+      "n_test_molecules": 171,
+      "bond_roc_auc": 0.2573350013636247
+    },
+    "unseen_e3": {
+      "atom_acc": 0.6395833333333333,
+      "exact_3_frag": 0.9184782608695652,
+      "reassembly": 0.9184782608695652,
+      "n_test_molecules": 184,
+      "bond_roc_auc": 0.25242252475816895
+    },
+    "fingerprint_ood": {
+      "atom_acc": 0.6502914238134888,
+      "exact_3_frag": 0.8562874251497006,
+      "reassembly": 0.8562874251497006,
+      "n_test_molecules": 167,
+      "bond_roc_auc": 0.503725451592858
+    },
+    "newer_chemotype": {
+      "atom_acc": 0.5315658973869922,
+      "exact_3_frag": 0.6167664670658682,
+      "reassembly": 0.6167664670658682,
+      "n_test_molecules": 167,
+      "bond_roc_auc": 0.47489211867066716
+    }
+  }
+}

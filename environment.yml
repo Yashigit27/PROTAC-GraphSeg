@@ -1,0 +1,29 @@
+# Conda environment for the Yashi PROTAC project
+# Create:  conda env create -f environment.yml
+# Activate: conda activate yashi-protac
+# Kernel:   already named "Python (yashi-protac)" after setup
+
+name: yashi-protac
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - rdkit
+  - pip
+  - pip:
+      - torch>=2.0
+      - pandas>=2.0
+      - numpy>=1.24
+      - scikit-learn>=1.3
+      - matplotlib>=3.7
+      - tqdm>=4.65
+      - openpyxl>=3.1
+      - jupyter>=1.0
+      - nbformat>=5.9
+      - nbconvert>=7.10
+      - xgboost>=2.0
+      - networkx>=3.0
+      - pillow>=10.0
+      - ipykernel
+      - python-docx

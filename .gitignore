@@ -1,0 +1,55 @@
+# =========================
+# Python cache / bytecode
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Jupyter notebook noise
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Virtual environments
+# (keep environment.yml, ignore local env folders)
+# =========================
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# IDE / OS files
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Build / packaging
+# =========================
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Logs / temp
+# =========================
+*.log
+tmp/
+temp/
+
+# =========================
+# Large generated ML artifacts
+# (can always regenerate by running notebooks)
+# =========================
+outputs/*.pt
+data/processed/*.pt
+
+# =========================
+# Local downloaded raw dataset folder
+# (large; avoid pushing to GitHub by default)
+# =========================
+Protac_4.0_database_files_downloaded/

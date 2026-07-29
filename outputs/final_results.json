@@ -1,0 +1,200 @@
+{
+  "gnn_scratch": {
+    "random": {
+      "n_test_molecules": 168,
+      "atom_acc_raw": 0.910996656727207,
+      "atom_acc_cst": 0.9219300623475196,
+      "atom_macro_f1_raw": 0.8978884614795605,
+      "atom_macro_f1_cst": 0.9039714304738004,
+      "bond_boundary_pr_auc": 0.32438522034817086,
+      "exact_3_frag_raw": 0.5833333333333334,
+      "exact_3_frag_cst": 0.9880952380952381,
+      "reassembly_raw": 0.5476190476190477,
+      "reassembly_cst": 0.9166666666666666
+    },
+    "unseen_warhead": {
+      "n_test_molecules": 171,
+      "atom_acc_raw": 0.8581105491329479,
+      "atom_acc_cst": 0.900650289017341,
+      "atom_macro_f1_raw": 0.8495451143629268,
+      "atom_macro_f1_cst": 0.8855186997497156,
+      "bond_boundary_pr_auc": 0.2589993454983149,
+      "exact_3_frag_raw": 0.4327485380116959,
+      "exact_3_frag_cst": 0.9883040935672515,
+      "reassembly_raw": 0.38596491228070173,
+      "reassembly_cst": 0.7719298245614035
+    },
+    "unseen_e3": {
+      "n_test_molecules": 184,
+      "atom_acc_raw": 0.8173076923076923,
+      "atom_acc_cst": 0.8868589743589743,
+      "atom_macro_f1_raw": 0.8071834456722359,
+      "atom_macro_f1_cst": 0.8486219186975444,
+      "bond_boundary_pr_auc": 0.2033180113978142,
+      "exact_3_frag_raw": 0.16847826086956522,
+      "exact_3_frag_cst": 0.967391304347826,
+      "reassembly_raw": 0.16304347826086957,
+      "reassembly_cst": 0.8097826086956522
+    },
+    "fingerprint_ood": {
+      "n_test_molecules": 167,
+      "atom_acc_raw": 0.840040706818392,
+      "atom_acc_cst": 0.8531779072994726,
+      "atom_macro_f1_raw": 0.8244852582203439,
+      "atom_macro_f1_cst": 0.8296225633895683,
+      "bond_boundary_pr_auc": 0.1507557798975371,
+      "exact_3_frag_raw": 0.25149700598802394,
+      "exact_3_frag_cst": 0.8802395209580839,
+      "reassembly_raw": 0.25149700598802394,
+      "reassembly_cst": 0.7305389221556886
+    },
+    "newer_chemotype": {
+      "n_test_molecules": 167,
+      "atom_acc_raw": 0.8896624070188823,
+      "atom_acc_cst": 0.9229448788861339,
+      "atom_macro_f1_raw": 0.8600555612916688,
+      "atom_macro_f1_cst": 0.8940238785703646,
+      "bond_boundary_pr_auc": 0.1977840092911912,
+      "exact_3_frag_raw": 0.31736526946107785,
+      "exact_3_frag_cst": 0.8982035928143712,
+      "reassembly_raw": 0.2874251497005988,
+      "reassembly_cst": 0.7844311377245509
+    }
+  },
+  "gnn_pretrained": {
+    "random": {
+      "n_test_molecules": 168,
+      "atom_acc_raw": 0.8896719978313906,
+      "atom_acc_cst": 0.9149724405891388,
+      "atom_macro_f1_raw": 0.8802042444936645,
+      "atom_macro_f1_cst": 0.89554458177437,
+      "bond_boundary_pr_auc": 0.35392375366571494,
+      "exact_3_frag_raw": 0.27976190476190477,
+      "exact_3_frag_cst": 0.9821428571428571,
+      "reassembly_raw": 0.27976190476190477,
+      "reassembly_cst": 0.875
+    },
+    "unseen_warhead": {
+      "n_test_molecules": 171,
+      "atom_acc_raw": 0.8172868497109826,
+      "atom_acc_cst": 0.8739161849710982,
+      "atom_macro_f1_raw": 0.8122170782942826,
+      "atom_macro_f1_cst": 0.8583201833406414,
+      "bond_boundary_pr_auc": 0.1365145282178111,
+      "exact_3_frag_raw": 0.1695906432748538,
+      "exact_3_frag_cst": 1.0,
+      "reassembly_raw": 0.1695906432748538,
+      "reassembly_cst": 0.9122807017543859
+    },
+    "unseen_e3": {
+      "n_test_molecules": 184,
+      "atom_acc_raw": 0.7350961538461539,
+      "atom_acc_cst": 0.8528846153846154,
+      "atom_macro_f1_raw": 0.7412737512377886,
+      "atom_macro_f1_cst": 0.8200837589177598,
+      "bond_boundary_pr_auc": 0.10694781739648214,
+      "exact_3_frag_raw": 0.15760869565217392,
+      "exact_3_frag_cst": 0.9510869565217391,
+      "reassembly_raw": 0.15760869565217392,
+      "reassembly_cst": 0.6739130434782609
+    },
+    "fingerprint_ood": {
+      "n_test_molecules": 167,
+      "atom_acc_raw": 0.8431862336941438,
+      "atom_acc_cst": 0.8657600148024794,
+      "atom_macro_f1_raw": 0.8337962447351203,
+      "atom_macro_f1_cst": 0.8498663112440843,
+      "bond_boundary_pr_auc": 0.31217995819367317,
+      "exact_3_frag_raw": 0.38922155688622756,
+      "exact_3_frag_cst": 0.9760479041916168,
+      "reassembly_raw": 0.32335329341317365,
+      "reassembly_cst": 0.688622754491018
+    },
+    "newer_chemotype": {
+      "n_test_molecules": 167,
+      "atom_acc_raw": 0.8720198359717719,
+      "atom_acc_cst": 0.9197024604234217,
+      "atom_macro_f1_raw": 0.8432099880993391,
+      "atom_macro_f1_cst": 0.8913200183852236,
+      "bond_boundary_pr_auc": 0.3026624378403853,
+      "exact_3_frag_raw": 0.10179640718562874,
+      "exact_3_frag_cst": 0.9760479041916168,
+      "reassembly_raw": 0.09580838323353294,
+      "reassembly_cst": 0.844311377245509
+    }
+  },
+  "dictionary": {
+    "random": {
+      "coverage": 1.0,
+      "atom_acc": 0.976054938104274,
+      "exact_3_frag": 1.0,
+      "reassembly": 1.0,
+      "n_test_molecules": 168
+    },
+    "unseen_warhead": {
+      "coverage": 1.0,
+      "atom_acc": 0.9729949421965318,
+      "exact_3_frag": 1.0,
+      "reassembly": 1.0,
+      "n_test_molecules": 171
+    },
+    "unseen_e3": {
+      "coverage": 1.0,
+      "atom_acc": 0.9559294871794872,
+      "exact_3_frag": 1.0,
+      "reassembly": 1.0,
+      "n_test_molecules": 184
+    },
+    "fingerprint_ood": {
+      "coverage": 1.0,
+      "atom_acc": 0.9612360070311777,
+      "exact_3_frag": 1.0,
+      "reassembly": 1.0,
+      "n_test_molecules": 167
+    },
+    "newer_chemotype": {
+      "coverage": 1.0,
+      "atom_acc": 0.9864581346557314,
+      "exact_3_frag": 1.0,
+      "reassembly": 1.0,
+      "n_test_molecules": 167
+    }
+  },
+  "xgboost": {
+    "random": {
+      "atom_acc": 0.7653383934218849,
+      "exact_3_frag": 0.8333333333333334,
+      "reassembly": 0.8333333333333334,
+      "n_test_molecules": 168,
+      "bond_roc_auc": 0.7112700425297929
+    },
+    "unseen_warhead": {
+      "atom_acc": 0.6488439306358381,
+      "exact_3_frag": 0.8947368421052632,
+      "reassembly": 0.8947368421052632,
+      "n_test_molecules": 171,
+      "bond_roc_auc": 0.2573350013636247
+    },
+    "unseen_e3": {
+      "atom_acc": 0.6395833333333333,
+      "exact_3_frag": 0.9184782608695652,
+      "reassembly": 0.9184782608695652,
+      "n_test_molecules": 184,
+      "bond_roc_auc": 0.25242252475816895
+    },
+    "fingerprint_ood": {
+      "atom_acc": 0.6502914238134888,
+      "exact_3_frag": 0.8562874251497006,
+      "reassembly": 0.8562874251497006,
+      "n_test_molecules": 167,
+      "bond_roc_auc": 0.503725451592858
+    },
+    "newer_chemotype": {
+      "atom_acc": 0.5315658973869922,
+      "exact_3_frag": 0.6167664670658682,
+      "reassembly": 0.6167664670658682,
+      "n_test_molecules": 167,
+      "bond_roc_auc": 0.47489211867066716
+    }
+  }
+}
