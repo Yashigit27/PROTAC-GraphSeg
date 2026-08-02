@@ -1,76 +1,90 @@
 {
   "dictionary": {
     "random": {
-      "coverage": 1.0,
-      "atom_acc": 0.976054938104274,
-      "exact_3_frag": 1.0,
-      "reassembly": 1.0,
-      "n_test_molecules": 168
+      "coverage": 0.9837209302325581,
+      "atom_acc": 0.9554167258270624,
+      "exact_3_frag": 0.9813953488372092,
+      "reassembly": 0.9813953488372092,
+      "n_test_molecules": 430,
+      "n_wh_recipes_used": 822,
+      "n_e3_recipes_used": 77
     },
     "unseen_warhead": {
-      "coverage": 1.0,
-      "atom_acc": 0.9729949421965318,
-      "exact_3_frag": 1.0,
-      "reassembly": 1.0,
-      "n_test_molecules": 171
+      "coverage": 0.06164383561643835,
+      "atom_acc": 0.057232485186476126,
+      "exact_3_frag": 0.0,
+      "reassembly": 0.0,
+      "n_test_molecules": 438,
+      "n_wh_recipes_used": 459,
+      "n_e3_recipes_used": 63
     },
     "unseen_e3": {
-      "coverage": 1.0,
-      "atom_acc": 0.9559294871794872,
-      "exact_3_frag": 1.0,
-      "reassembly": 1.0,
-      "n_test_molecules": 184
+      "coverage": 0.3288888888888889,
+      "atom_acc": 0.3094052056873289,
+      "exact_3_frag": 0.0,
+      "reassembly": 0.0,
+      "n_test_molecules": 450,
+      "n_wh_recipes_used": 732,
+      "n_e3_recipes_used": 5
     },
     "fingerprint_ood": {
-      "coverage": 1.0,
-      "atom_acc": 0.9612360070311777,
-      "exact_3_frag": 1.0,
-      "reassembly": 1.0,
-      "n_test_molecules": 167
+      "coverage": 0.9324009324009324,
+      "atom_acc": 0.8907617504051863,
+      "exact_3_frag": 0.9300699300699301,
+      "reassembly": 0.9300699300699301,
+      "n_test_molecules": 429,
+      "n_wh_recipes_used": 808,
+      "n_e3_recipes_used": 72
     },
     "newer_chemotype": {
-      "coverage": 1.0,
-      "atom_acc": 0.9864581346557314,
-      "exact_3_frag": 1.0,
-      "reassembly": 1.0,
-      "n_test_molecules": 167
+      "coverage": 0.48484848484848486,
+      "atom_acc": 0.4703284671532847,
+      "exact_3_frag": 0.46386946386946387,
+      "reassembly": 0.46386946386946387,
+      "n_test_molecules": 429,
+      "n_wh_recipes_used": 759,
+      "n_e3_recipes_used": 72
     }
   },
   "xgboost": {
     "random": {
-      "atom_acc": 0.7653383934218849,
-      "exact_3_frag": 0.8333333333333334,
-      "reassembly": 0.8333333333333334,
-      "n_test_molecules": 168,
-      "bond_roc_auc": 0.7112700425297929
+      "atom_acc": 0.8401421637037539,
+      "exact_3_frag": 0.8534883720930233,
+      "reassembly": 0.8534883720930233,
+      "n_test_molecules": 430,
+      "bond_pr_auc": 0.7500277885068928
     },
     "unseen_warhead": {
-      "atom_acc": 0.6488439306358381,
-      "exact_3_frag": 0.8947368421052632,
-      "reassembly": 0.8947368421052632,
-      "n_test_molecules": 171,
-      "bond_roc_auc": 0.2573350013636247
+      "atom_acc": 0.8276974350370175,
+      "exact_3_frag": 0.91324200913242,
+      "reassembly": 0.91324200913242,
+      "n_test_molecules": 438,
+      "bond_pr_auc": 0.2554132705703062
     },
     "unseen_e3": {
-      "atom_acc": 0.6395833333333333,
-      "exact_3_frag": 0.9184782608695652,
-      "reassembly": 0.9184782608695652,
-      "n_test_molecules": 184,
-      "bond_roc_auc": 0.25242252475816895
+      "atom_acc": 0.8393299603207105,
+      "exact_3_frag": 0.9333333333333333,
+      "reassembly": 0.9333333333333333,
+      "n_test_molecules": 450,
+      "bond_pr_auc": 0.26876333193077967
     },
     "fingerprint_ood": {
-      "atom_acc": 0.6502914238134888,
-      "exact_3_frag": 0.8562874251497006,
-      "reassembly": 0.8562874251497006,
-      "n_test_molecules": 167,
-      "bond_roc_auc": 0.503725451592858
+      "atom_acc": 0.8155985870239625,
+      "exact_3_frag": 0.8461538461538461,
+      "reassembly": 0.8461538461538461,
+      "n_test_molecules": 429,
+      "bond_pr_auc": 0.5353687137772396
     },
     "newer_chemotype": {
-      "atom_acc": 0.5315658973869922,
-      "exact_3_frag": 0.6167664670658682,
-      "reassembly": 0.6167664670658682,
-      "n_test_molecules": 167,
-      "bond_roc_auc": 0.47489211867066716
+      "atom_acc": 0.6662293980232449,
+      "exact_3_frag": 0.6899766899766899,
+      "reassembly": 0.6899766899766899,
+      "n_test_molecules": 429,
+      "bond_pr_auc": 0.4723507257911238
     }
+  },
+  "notes": {
+    "dictionary": "train-only recipe book per split",
+    "xgboost": "train-only Morgan SVD; atom_acc allows W/E3 swap; bond_pr_auc is average precision"
   }
 }
