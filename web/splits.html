@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Splits · Yashi GraphSeg</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <style>
+    .split-board {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+    .split-card {
+      padding: 1.2rem;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.78);
+      min-height: 170px;
+    }
+    .split-card.hard {
+      background: linear-gradient(180deg, rgba(214,90,69,0.08), rgba(255,255,255,0.9));
+      border-color: #f0b4a8;
+    }
+    .split-card h3 { margin-bottom: 0.4rem; }
+    .split-card p { color: var(--ink-soft); margin: 0 0 0.8rem; }
+    @media (max-width: 800px) { .split-board { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="index.html">Yashi GraphSeg <span>PROTAC lab</span></a>
+    <div class="nav-links">
+      <a href="index.html">Tool</a>
+      <a href="learn.html">Learn</a>
+      <a href="pipeline.html">Pipeline</a>
+      <a href="models.html">Models</a>
+      <a class="gnn-link" href="models.html#gnn">GNN</a>
+      <a href="results.html">Results</a>
+      <a href="index.html">Tool</a>
+      <a href="splits.html">Splits</a>
+    </div>
+  </nav>
+
+  <main class="page wrap">
+    <div class="kicker">Exam design</div>
+    <h1>Five splits that test different kinds of generalization.</h1>
+    <p class="lede">
+      Random accuracy alone is not enough. These exams separate “recipes already known”
+      from “chemistry the model never studied.”
+    </p>
+
+    <div class="split-board">
+      <article class="split-card">
+        <span class="chip">Standard</span>
+        <h3>random</h3>
+        <p>Shuffle molecules into 80/10/10. Everyday performance benchmark.</p>
+        <strong>Best for:</strong> sanity check / upper baseline comfort
+      </article>
+      <article class="split-card hard">
+        <span class="chip w">Hard</span>
+        <h3>unseen_warhead</h3>
+        <p>Hold out rare warhead families from train. Closed-book dictionary should collapse.</p>
+        <strong>Best for:</strong> proving lookup ≠ understanding
+      </article>
+      <article class="split-card hard">
+        <span class="chip e">Hard</span>
+        <h3>unseen_e3</h3>
+        <p>Hold out rare E3 families. Same fairness logic as unseen warhead.</p>
+        <strong>Best for:</strong> E3 novelty stress test
+      </article>
+      <article class="split-card">
+        <span class="chip l">OOD</span>
+        <h3>fingerprint_ood</h3>
+        <p>Keep molecules least similar (Morgan / Tanimoto) to a study pool.</p>
+        <strong>Best for:</strong> chemical neighborhood shift
+      </article>
+      <article class="split-card" style="grid-column: 1 / -1">
+        <span class="chip">Time-like</span>
+        <h3>newer_chemotype</h3>
+        <p>Sort by Compound ID and test on newer entries. Mimics “train on past database, test on future designs.”</p>
+        <strong>Best for:</strong> deployment-style drift conversations
+      </article>
+    </div>
+
+    <div class="insight" style="margin-top:1.4rem">
+      Skill tip: when you present results, always say which split. “0.95 accuracy” without the exam name is not scientifically meaningful.
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>Yashi · Splits</div>
+      <div><a href="results.html">Compare metrics by split →</a></div>
+    </div>
+  </footer>
+  <script src="js/nav.js"></script>
+</body>
+</html>

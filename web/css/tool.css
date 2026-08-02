@@ -1,0 +1,172 @@
+.tool-shell {
+  display: grid;
+  grid-template-columns: 1.05fr 1.15fr;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.tool-panel {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.84);
+  padding: 1.2rem 1.25rem 1.4rem;
+}
+
+.tool-panel.main-out {
+  border: 2px solid #6db89f;
+  box-shadow: 0 16px 40px var(--gnn-glow);
+}
+
+.model-picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  margin: 0.9rem 0 1rem;
+}
+
+.model-picker label {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.75rem 0.7rem;
+  cursor: pointer;
+  background: #f8fcfa;
+  display: block;
+}
+
+.model-picker input { display: none; }
+
+.model-picker label.active {
+  border-color: var(--ink);
+  background: #fff;
+}
+
+.model-picker label.gnn-opt.active {
+  border-color: var(--gnn);
+  background: rgba(11, 110, 79, 0.08);
+  box-shadow: 0 0 0 1px rgba(11, 110, 79, 0.25);
+}
+
+.model-picker strong { display: block; font-size: 0.95rem; }
+.model-picker span { display: block; font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.2rem; }
+
+.smiles-input {
+  width: 100%;
+  min-height: 110px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.8rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86rem;
+  resize: vertical;
+  background: #fbfffd;
+}
+
+.tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+  align-items: center;
+}
+
+.status-pill {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.status-pill.ok { color: var(--mint-deep); font-weight: 600; }
+.status-pill.err { color: var(--coral); font-weight: 600; }
+
+.examples {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.examples button {
+  text-align: left;
+  border: 1px solid var(--line);
+  background: #f7fbf9;
+  border-radius: 12px;
+  padding: 0.65rem 0.75rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.examples button:hover { border-color: var(--mint); }
+
+.out-image {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+  min-height: 220px;
+  object-fit: contain;
+}
+
+.frag-grid {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.frag {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.75rem 0.85rem;
+  background: #fff;
+}
+
+.frag.w { border-left: 5px solid var(--coral); }
+.frag.l { border-left: 5px solid var(--sky); }
+.frag.e { border-left: 5px solid var(--mint); }
+
+.frag header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+
+.frag code {
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-size: 0.8rem;
+  background: #f4faf7;
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+}
+
+.copy-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.8rem 0;
+}
+
+.secondary-links {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 960px) {
+  .tool-shell,
+  .model-picker { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Models · Yashi GraphSeg</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="index.html">Yashi GraphSeg <span>PROTAC lab</span></a>
+    <div class="nav-links">
+      <a href="index.html">Tool</a>
+      <a href="learn.html">Learn</a>
+      <a href="pipeline.html">Pipeline</a>
+      <a href="models.html">Models</a>
+      <a class="gnn-link" href="models.html#gnn">GNN</a>
+      <a href="results.html">Results</a>
+      <a href="index.html">Tool</a>
+      <a href="splits.html">Splits</a>
+    </div>
+  </nav>
+
+  <main class="page wrap">
+    <div class="kicker">Three solvers, one task</div>
+    <h1>Baselines support the claim. The GNN is the claim.</h1>
+    <p class="lede">All methods output atom-level W / L / E3 labels. Only the GNN is positioned as the primary research model.</p>
+
+    <div class="model-stack" style="margin-top:1.6rem">
+      <section class="model-panel" id="dictionary">
+        <div>
+          <span class="chip">Baseline A · Ribes-inspired</span>
+          <h3>Dictionary matching</h3>
+          <p>Look up warhead and E3 recipes, paint matched atoms, leftover = linker.</p>
+        </div>
+        <div>
+          <ul>
+            <li>No learning from train seats</li>
+            <li>Fair mode: train-only recipe book</li>
+            <li>Fails when the recipe is missing (unseen splits)</li>
+            <li>Still useful as teacher for weak labels in notebook 01</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="model-panel" id="xgboost">
+        <div>
+          <span class="chip">Baseline B · Lab Mate-inspired</span>
+          <h3>XGBoost bond cutting</h3>
+          <p>Score every bond as cut / not-cut, take top-2 cuts, convert fragments to labels.</p>
+        </div>
+        <div>
+          <ul>
+            <li>Uses local bond features + Morgan context</li>
+            <li>Train-only SVD (no test leakage)</li>
+            <li>Atom score allows W↔E3 swap</li>
+            <li>Works without dictionary recipes, weaker on newer IDs</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="model-panel gnn-panel" id="gnn">
+        <div class="gnn-banner">
+          <span class="chip gnn">Main model · Yashi contribution</span>
+          <h2 style="margin-top:0.5rem">Graph Neural Network segmentation</h2>
+          <p class="lede" style="margin:0;max-width:70ch">
+            Molecular graph → shared GIN encoder → atom head (W/L/E3) + bond boundary head,
+            trained with smoothness and soft reconstruction so predictions stay chemically consistent.
+          </p>
+        </div>
+        <div class="gnn-body">
+          <div>
+            <h3>Why it is differentiated</h3>
+            <ul>
+              <li>Learns representations instead of hand-built cut rules</li>
+              <li>Does not need the recipe book at inference</li>
+              <li>Soft reconstruction encourages valid 3-part splits</li>
+              <li>Optional AttrMask pretraining vs training from scratch</li>
+              <li>Evaluated on the same five hard splits as baselines</li>
+            </ul>
+            <div style="margin-top:1rem;display:flex;gap:0.6rem;flex-wrap:wrap">
+              <a class="btn gnn" href="results.html">See GNN metrics</a>
+              <a class="btn ghost" href="lab.html">Try workbench demos</a>
+            </div>
+          </div>
+          <div>
+            <h3>What to say in a viva</h3>
+            <p style="color:var(--ink-soft)">
+              “Dictionary proves the teacher baseline. XGBoost proves classical ML can cut bonds.
+              The GNN is our main method because it performs atom-level graph segmentation and
+              stays strong when recipes are held out.”
+            </p>
+            <div style="margin-top:0.8rem">
+              <span class="chip gnn">Scratch · atom acc 0.922 (random)</span>
+              <span class="chip gnn">Unseen WH · 0.901</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>Yashi · Models</div>
+      <div><a href="results.html">Next: results →</a></div>
+    </div>
+  </footer>
+  <script src="js/nav.js"></script>
+</body>
+</html>

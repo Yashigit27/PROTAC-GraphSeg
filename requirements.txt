@@ -12,3 +12,4 @@ nbconvert>=7.10
 xgboost>=2.0
 networkx>=3.0
 pillow>=10.0
+flask>=3.0

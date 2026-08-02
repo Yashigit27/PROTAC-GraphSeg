@@ -48,6 +48,26 @@ python run_all.py
 
 Cached intermediates go to `data/processed/`. Results go to `outputs/`.
 
+## Web segmentation tool (`web/`)
+
+Researcher-facing tool: paste a PROTAC SMILES → get **warhead / linker / E3 SMILES**, colored map, and JSON export.
+
+Models available in the UI:
+- **GNN (main)** — `outputs/gnn_models.pt`
+- Dictionary — recipe lookup baseline
+- XGBoost — bond-cut baseline (cached to `outputs/xgb_tool.pkl` on first run)
+
+```bash
+cd Yashi/web
+conda activate yashi-protac
+python server.py
+```
+
+Open **http://127.0.0.1:5000**
+
+Extra pages: Learn, Pipeline, Models, Metrics, Splits.  
+Requires notebooks 01–03 outputs (`refs.pkl`, `labeled_protacs.jsonl`, `gnn_models.pt`).
+
 ## Method (short)
 
 1. Weak labels from dictionary matching (warhead + E3 libraries).  
@@ -116,6 +136,7 @@ Full GNN comparison (scratch vs pretrained vs these baselines) comes from notebo
 ```
 Yashi/
 ├── notebooks/          ← ALL method code lives here (cell by cell)
+├── web/                ← multi-page GraphSeg lab website
 ├── data/processed/     ← cached labels, splits, graphs
 ├── outputs/            ← metrics, models, figures
 ├── Protac_4.0_database_files_downloaded/

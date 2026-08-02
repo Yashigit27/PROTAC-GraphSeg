@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pipeline · Yashi GraphSeg</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="index.html">Yashi GraphSeg <span>PROTAC lab</span></a>
+    <div class="nav-links">
+      <a href="index.html">Tool</a>
+      <a href="learn.html">Learn</a>
+      <a href="pipeline.html">Pipeline</a>
+      <a href="models.html">Models</a>
+      <a class="gnn-link" href="models.html#gnn">GNN</a>
+      <a href="results.html">Results</a>
+      <a href="index.html">Tool</a>
+      <a href="splits.html">Splits</a>
+    </div>
+  </nav>
+
+  <main class="page wrap">
+    <div class="kicker">From database to decision</div>
+    <h1>How the Yashi pipeline runs.</h1>
+    <p class="lede">Each major step maps to one notebook. This page is the process view — not a marketing funnel.</p>
+
+    <div class="timeline">
+      <article class="t-step">
+        <h3>01 · Data & weak labels</h3>
+        <p>Load PROTAC-DB, build warhead/E3 recipe books, match atoms, keep only labels that reassemble into 3 fragments, create five splits, export graphs.</p>
+        <span class="chip">labeled_protacs.jsonl · splits.pkl · refs.pkl</span>
+      </article>
+      <article class="t-step">
+        <h3>02 · Baselines</h3>
+        <p>Score dictionary (train-only book) and XGBoost bond-cut models on every split. Establishes fair classical competitors.</p>
+        <span class="chip">baselines_metrics.json</span>
+      </article>
+      <article class="t-step gnn-step">
+        <h3>03 · Train GNN (main method)</h3>
+        <p>AttrMask pretrain optional, then fine-tune GIN with atom/bond heads plus soft reconstruction. This is the core scientific contribution.</p>
+        <span class="chip gnn">scratch + pretrained checkpoints</span>
+      </article>
+      <article class="t-step">
+        <h3>04 · Evaluation</h3>
+        <p>Same metrics for everyone: atom accuracy, exact-3 fragments, reassembly. Build the final comparison table.</p>
+        <span class="chip">final_results.json</span>
+      </article>
+      <article class="t-step">
+        <h3>05 · Inference demo</h3>
+        <p>Paint W/L/E3 on example molecules for qualitative inspection.</p>
+        <span class="chip">notebook demo · this web workbench</span>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>Yashi · Pipeline</div>
+      <div><a href="models.html">Next: models →</a></div>
+    </div>
+  </footer>
+  <script src="js/nav.js"></script>
+</body>
+</html>

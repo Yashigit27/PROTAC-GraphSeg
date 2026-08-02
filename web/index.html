@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yashi GraphSeg · PROTAC Segmentation Tool</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/tool.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="index.html">Yashi GraphSeg <span>segment tool</span></a>
+    <div class="nav-links">
+      <a href="index.html">Tool</a>
+      <a href="learn.html">Learn</a>
+      <a href="pipeline.html">Pipeline</a>
+      <a href="models.html">Models</a>
+      <a class="gnn-link" href="models.html#gnn">GNN</a>
+      <a href="results.html">Metrics</a>
+      <a href="splits.html">Splits</a>
+    </div>
+  </nav>
+
+  <main class="page wrap">
+    <div class="kicker">Researcher tool</div>
+    <h1>Paste a PROTAC. Get warhead, linker, and E3.</h1>
+    <p class="lede">
+      Main solver is the <strong>Yashi GNN</strong>. Dictionary and XGBoost remain available as comparison options.
+      Output is usable SMILES for each substructure plus a colored molecule map.
+    </p>
+    <p id="health-status" class="status-pill">Checking model status...</p>
+
+    <div class="tool-shell">
+      <section class="tool-panel">
+        <h2 style="font-size:1.3rem">Input</h2>
+
+        <div class="model-picker">
+          <label>
+            <input type="radio" name="model" value="dictionary" />
+            <strong>Dictionary</strong>
+            <span>Recipe lookup baseline</span>
+          </label>
+          <label>
+            <input type="radio" name="model" value="xgboost" />
+            <strong>XGBoost</strong>
+            <span>Bond-cut baseline</span>
+          </label>
+          <label class="gnn-opt active">
+            <input type="radio" name="model" value="gnn" checked />
+            <strong>GNN (main)</strong>
+            <span>Graph segmentation · recommended</span>
+          </label>
+        </div>
+
+        <label for="smiles" style="font-size:0.85rem;color:var(--ink-soft)">PROTAC SMILES</label>
+        <textarea id="smiles" class="smiles-input" placeholder="Paste full PROTAC SMILES here..."></textarea>
+
+        <div class="tool-actions">
+          <button class="btn gnn" id="run-btn" type="button">Segment with GNN (main)</button>
+          <span id="run-status" class="status-pill"></span>
+        </div>
+
+        <h3 style="margin-top:1.3rem;font-size:1.05rem">Example molecules</h3>
+        <div class="examples" id="examples"></div>
+      </section>
+
+      <section class="tool-panel main-out">
+        <h2 style="font-size:1.3rem">Substructure output</h2>
+        <p id="out-empty" style="color:var(--ink-soft)">
+          Results appear here: colored molecule, warhead / linker / E3 SMILES, JSON export.
+        </p>
+        <div id="out-body" hidden>
+          <div class="meta-row" id="out-meta"></div>
+          <img id="out-image" class="out-image" alt="Labeled PROTAC" />
+          <div class="frag-grid" id="frag-box"></div>
+          <h3 style="margin-top:1.1rem;font-size:1.05rem">Export</h3>
+          <textarea id="out-json" class="smiles-input" style="min-height:120px" readonly></textarea>
+          <div class="tool-actions">
+            <button class="btn ghost" id="copy-json" type="button">Copy JSON</button>
+            <button class="btn ghost" id="download-json" type="button">Download JSON</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="secondary-links">
+      <a href="results.html">View evaluation metrics →</a>
+      <a href="learn.html">Learn PROTAC anatomy →</a>
+      <a href="models.html#gnn">Why GNN is the main model →</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>Yashi segmentation tool · start with <code>python server.py</code></div>
+      <div>GNN checkpoint: outputs/gnn_models.pt</div>
+    </div>
+  </footer>
+  <script src="js/nav.js"></script>
+  <script src="js/tool.js"></script>
+</body>
+</html>

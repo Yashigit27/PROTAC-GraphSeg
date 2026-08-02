@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Results · Yashi GraphSeg</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="index.html">Yashi GraphSeg <span>PROTAC lab</span></a>
+    <div class="nav-links">
+      <a href="index.html">Tool</a>
+      <a href="learn.html">Learn</a>
+      <a href="pipeline.html">Pipeline</a>
+      <a href="models.html">Models</a>
+      <a class="gnn-link" href="models.html#gnn">GNN</a>
+      <a href="results.html">Results</a>
+      <a href="index.html">Tool</a>
+      <a href="splits.html">Splits</a>
+    </div>
+  </nav>
+
+  <main class="page wrap">
+    <div class="kicker">Evidence bench</div>
+    <h1>Compare all solvers on the same exams.</h1>
+    <p class="lede">
+      Dictionary and XGBoost numbers use the fair notebook-02 protocol (train-only book / train-only SVD).
+      GNN numbers are constrained metrics from the evaluation run. GNN rows are highlighted as the main model.
+    </p>
+
+    <div class="results-controls">
+      <label>
+        Split
+        <select id="split-select"></select>
+      </label>
+      <label>
+        Chart metric
+        <select id="metric-select">
+          <option value="atom_acc">Atom accuracy</option>
+          <option value="exact_3">Exact-3 fragments</option>
+          <option value="reassembly">Reassembly</option>
+          <option value="coverage">Coverage (dict only)</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="chart-frame" id="bar-chart" aria-label="Metrics bar chart"></div>
+
+    <div class="table-wrap">
+      <table id="results-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Coverage</th>
+            <th>Atom acc</th>
+            <th>Exact-3</th>
+            <th>Reassembly</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="insight" id="insight"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>Yashi · Results</div>
+      <div>Source: baselines_metrics.json + final_results.json</div>
+    </div>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/results.js"></script>
+</body>
+</html>
