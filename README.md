@@ -56,14 +56,59 @@ Cached intermediates go to `data/processed/`. Results go to `outputs/`.
 4. Compare scratch vs AttrMask-pretrained encoders.  
 5. Evaluate on random, unseen-warhead, unseen-E3, fingerprint-OOD, newer-chemotype splits.
 
-## Results
+## Results — Notebook 02 baselines (fair evaluation)
 
-See `outputs/final_results_table.csv` and `README` table from the last full run (or regenerate with notebooks 02–04).
+Source: `outputs/baselines_metrics.json` (from `notebooks/02_baselines.ipynb`).
+
+Fairness settings used:
+- **Dictionary:** train-only recipe book per split (closed book on unseen chemotypes)
+- **XGBoost:** train-only Morgan SVD; atom accuracy allows W↔E3 swap; bond metric is `bond_pr_auc`
+
+### Method A — Dictionary (train-only book)
+
+| Split | Coverage | Atom acc | Exact-3 | Reassembly |
+|-------|----------|----------|---------|------------|
+| random | 0.984 | 0.955 | 0.981 | 0.981 |
+| unseen_warhead | 0.062 | 0.057 | 0.000 | 0.000 |
+| unseen_e3 | 0.329 | 0.309 | 0.000 | 0.000 |
+| fingerprint_ood | 0.932 | 0.891 | 0.930 | 0.930 |
+| newer_chemotype | 0.485 | 0.470 | 0.464 | 0.464 |
+
+### Method B — XGBoost bond-cut (Ayush-style)
+
+| Split | Atom acc | Exact-3 | Reassembly | Bond PR-AUC |
+|-------|----------|---------|------------|-------------|
+| random | 0.840 | 0.853 | 0.853 | 0.750 |
+| unseen_warhead | 0.828 | 0.913 | 0.913 | 0.255 |
+| unseen_e3 | 0.839 | 0.933 | 0.933 | 0.269 |
+| fingerprint_ood | 0.816 | 0.846 | 0.846 | 0.535 |
+| newer_chemotype | 0.666 | 0.690 | 0.690 | 0.472 |
+
+### Side-by-side atom accuracy
+
+| Split | Dictionary | XGBoost | Better |
+|-------|------------|---------|--------|
+| random | **0.955** | 0.840 | Dictionary |
+| unseen_warhead | 0.057 | **0.828** | XGBoost |
+| unseen_e3 | 0.309 | **0.839** | XGBoost |
+| fingerprint_ood | **0.891** | 0.816 | Dictionary |
+| newer_chemotype | 0.470 | **0.666** | XGBoost |
+
+### Inference (what these numbers mean)
+
+1. **Dictionary is strong when recipes are known.** On `random` and `fingerprint_ood`, lookup nearly reproduces the teacher labels (high coverage + atom accuracy + reassembly).
+2. **Dictionary collapses on true unseen chemotypes.** With a train-only book, `unseen_warhead` coverage falls to ~6% and `unseen_e3` to ~33%. Exact-3 / reassembly go to 0 because most test molecules cannot be matched.
+3. **XGBoost still works without the missing recipe.** On unseen warhead/E3 splits it keeps ~0.83 atom accuracy and high reassembly (~0.91–0.93), because it learned cut-bond patterns rather than looking up fragment IDs.
+4. **Bond ranking gets harder on unseen splits** (`bond_pr_auc` ~0.25–0.27), but top-2 cuts often still produce three fragments — so molecule-level metrics stay useful.
+5. **Takeaway for the GNN (notebooks 03–04):** if recipes are available, dictionary is a tough baseline; if warhead/E3 is unseen, a learned method (XGBoost now, GNN next) is the fair competitor to beat.
+
+Full GNN comparison (scratch vs pretrained vs these baselines) comes from notebooks 03–04 → `outputs/final_results_table.csv`.
 
 ## Docs
 
 - `logic.md` — short research logic  
 - `STEP_BY_STEP_LAYMAN.md` — deep layman walkthrough  
+- `NOTEBOOK_02_WALKTHROUGH.md` — cell-by-cell guide for baselines notebook  
 - `Manuscript_PROTAC_Substructure_Segmentation.docx` — paper draft  
 
 ## Folder layout
@@ -78,5 +123,6 @@ Yashi/
 ├── requirements.txt
 ├── logic.md
 ├── STEP_BY_STEP_LAYMAN.md
+├── NOTEBOOK_02_WALKTHROUGH.md
 └── README.md
 ```
